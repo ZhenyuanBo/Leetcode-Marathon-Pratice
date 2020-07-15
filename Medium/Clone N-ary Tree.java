@@ -23,6 +23,7 @@ class Node {
 
 class Solution {
     public Node cloneTree(Node root) {
+        if(root==null) return null;
         
         Map<Node, Node> map = new HashMap<Node, Node>();
         
