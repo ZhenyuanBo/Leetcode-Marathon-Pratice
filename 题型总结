@@ -1,0 +1,48 @@
+1. Next Greater Element
+
+739 - daily temperature, Next Greater Element I
+
+1). Using Stack and HashMap 
+if a new item is greater than the top value, put that in a hashmap 
+if not, place on top of the Stack
+hashmap stores the next greater element for each element
+
+2. for Matrix problem [BFS]
+
+Maze, Number of Island
+
+1). set up an object
+2). build visited boolean array
+3). build direction array
+4). build a queue
+5). use queue template to do
+
+3. clone graph / Clone N-ary Tree 
+
+BFS Method:
+1). create a visited hashmap (node, cloneNode)
+2). create a queue to store all nodes
+3). iterate through all neighbors, if visited hashmap contains this nei, put that in the children list that the clone node has; if not, create a clone node of this neighbor node
+
+Do the BFS traversal.
+
+Pop a node from the front of the queue.
+Visit all the neighbors of this node.
+If any of the neighbors was already visited then it must be present in the visited dictionary. Get the clone of this neighbor from visited in that case.
+Otherwise, create a clone and store in the visited.
+Add the clones of the neighbors to the corresponding list of the clone node.
+
+DFS Template I:
+/*
+ * Return true if there is a path from cur to target.
+ */
+boolean DFS(Node cur, Node target, Set<Node> visited) {
+    return true if cur is target;
+    for (next : each neighbor of cur) {
+        if (next is not in visited) {
+            add next to visted;
+            return true if DFS(next, target, visited) == true;
+        }
+    }
+    return false;
+}
