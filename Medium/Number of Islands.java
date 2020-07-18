@@ -45,3 +45,47 @@ class Solution {
         return islandCount;
     }
 }
+
+//solution 2:
+
+class Solution {
+    public class GridRowCol{
+        int row;
+        int col;
+        public GridRowCol(int row, int col){
+            this.row = row;
+            this.col = col;
+        }
+    }
+    public int numIslands(char[][] grid) {
+        Queue<GridRowCol> queue = new LinkedList<>();
+        if(grid.length==0) return 0;
+        
+        int numIsland=0;
+        int[][] neiDir = {{0, 1}, {0, -1},{1, 0}, {-1, 0}};
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        
+        for(int i=0; i<grid.length; i++){
+            for(int j=0; j<grid[0].length; j++){
+                if(grid[i][j]=='1' && !visited[i][j]){
+                    numIsland++;
+                    queue.add(new GridRowCol(i, j));
+                    while(!queue.isEmpty()){
+                        GridRowCol topItem = queue.poll();
+                        for(int k=0; k<neiDir.length; k++){
+                            int newR = topItem.row + neiDir[k][0];
+                            int newC = topItem.col + neiDir[k][1];
+                            if(newR<0 || newC<0 || newR>=grid.length || newC>=grid[0].length || grid[newR][newC]=='0' || visited[newR][newC]) continue;
+                            if(!visited[newR][newC]){
+                                queue.add(new GridRowCol(newR, newC));
+                                visited[newR][newC] = true;
+                            }  
+                        }
+                    }
+                }
+            }
+        }
+        
+        return numIsland;
+    }
+}
