@@ -82,4 +82,38 @@ for subset type questions we use backtrack template
 using for loop to get the candidate
 and path.addLast(), backtrack(), and removeLast
 
+5. gcd function
+   public int gcd(int a, int b) {
+        if(b == 0){
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+public String gcdOfStrings(String str1, String str2) {
+	
+		//Ensure that str1 is greater than str2
+        if(str2.length() > str1.length())
+            return gcdOfStrings(str2, str1);
+			
+        //If str2 is length 0, return str1;
+        if(str2.length() == 0)
+            return str1;
+
+		/* 
+            Calculate the remainder by:
+            1. Checking to see if str1 starts with str2. 
+                If it doesn't then return the empty string. i.e. the string LEET, CODE 
+            2. Calculate the remainder substring. 
+            3. Recursively call with str2 and the remainder. 
+		*/ 
+        String remainder = "";
+        if(str1.startsWith(str2)) {
+            int remainder_loc = str1.indexOf(str2) + str2.length();
+            remainder = str1.substring(remainder_loc);
+        } else {
+            return "";
+        }
+        return gcdOfStrings(str2, remainder);
+    }
 
