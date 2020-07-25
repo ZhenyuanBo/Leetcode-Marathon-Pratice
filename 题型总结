@@ -68,3 +68,12 @@ boolean DFS(int root, int target) {
     }
     return false;
 }
+
+4. backtracking
+
+explore neighbors
+backtrack()
+place() on to the path
+remove() from the path when it reaches the end or there is no way to go further
+
+
