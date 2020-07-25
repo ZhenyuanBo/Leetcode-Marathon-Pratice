@@ -77,3 +77,9 @@ place() on to the path
 remove() from the path when it reaches the end or there is no way to go further
 
 
+for subset type questions we use backtrack template
+
+using for loop to get the candidate
+and path.addLast(), backtrack(), and removeLast
+
+
