@@ -162,3 +162,41 @@ public String gcdOfStrings(String str1, String str2) {
             return ret;
         }
     }
+
+*****************************
+Sliding Window problem
+*****************************
+1. if there is no specific definition of window size, we use
+for(...){
+    while(...)
+}
+while loop will execute only if the condition meets, for example greater than K distinct chars
+in the while loop, we reduce the window size until while loop condition meets
+
+2. if there is a specific definition of window size, we use
+while(...){
+    while(...)
+}
+
+in both first and second scenarios, external loop will use r (right, faster pointer)
+inner loop will use l (left, slower pointer)
+
+in 2nd scenario, the inner while loop will keep increasing its size
+once the inner loop doesn't meet condition, we calculate the min/max len and reduce left only by 1
+
+**********************
+TWO POINTERS
+**********************
+1. we usually need to sort the array first and one pointer starts from 
+the beginning and the other one starts from the end
+2. sometimes, it is treated as a slide window problem
+
+**********************
+HEAP
+**********************
+The time complexity of adding an element in a heap of size k is O(logk), and we do it N times that means
+O(Nlogk) time complexity for the algorithm.
+smallest comes first
+PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>((n1, n2) -> n1 - n2);
+largest comes first
+PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a,b)->b-a);
